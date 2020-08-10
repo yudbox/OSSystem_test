@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import classes from './App.module.css';
+import { Grid } from '@material-ui/core';
+import Header from './Components/Header/Header'
+import GoodsCatalog from './Components/GoodsCatalog/GoodsCatalog';
+import Login from './Components/Login/Login';
+import NewGoodsForm from './Components/NewGoodsForm/NewGoodsForm';
+import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.app}>
+
+      <Grid container justify="center" alignItems="center" spacing={0}>
+
+        <Grid item xs={12}>
+          <Header />
+        </Grid>
+
+        <Grid item xs={12}>
+          <div className="main-content">
+            <Route path="/" component={GoodsCatalog} exact />
+            <Route path="/login" component={Login} exact />
+            <Route path="/newgoodsform" component={NewGoodsForm} exact /> 
+          </div>
+        </Grid>
+
+      </Grid>
+
     </div>
   );
 }
 
-export default App;
+let mapStateToProps = (state) => {
+  return {
+      loginName: state.auth.loginName
+  }
+}
+
+export default connect(mapStateToProps)(App)

@@ -1,0 +1,55 @@
+.login__title {
+    text-align: center;
+}
+
+.form_container {
+    display: flex;
+    justify-content: center;
+}
+
+.loginBox {
+    width: 50%;
+}
+
+.submit__btn {
+    text-align: center;
+}
+
+.submit__btn button {
+    color: #fff;
+    text-decoration: none;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(208,1,120,1) 0%, rgba(121,9,105,1) 100%);
+    transition: 0.5s;
+    outline: none;
+}
+
+.submit__btn button:hover {
+    cursor: pointer;
+    background: linear-gradient(270deg, rgba(208,1,120,1) 0%, rgba(121,9,105,1) 100%);
+}
+.formControl label {
+    display: block;
+    position: relative;
+}
+
+@media (max-width: 767px) {
+    .login__title {
+        font-size: 24px;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .login__title {
+        font-size: 18px;
+    }
+
+    .loginBox {
+        width: 98%;
+    }
+}
